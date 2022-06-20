@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Smart-Brain App
+
+Live deployment on GitHub Pages [here](https://alindabyamukama.github.io/smart-brain-frontend/).
+<br>
+This web application is the front-end application of the Capstone (final) project in the [Zero to Mastery: The Complete Web Developer in 2022](https://zerotomastery.io/courses/coding-bootcamp/#Curriculum). Part two is the back-end server of the project, followed by part three where we create a database for our project.
+<br>
+A face detection web application created with React using the [Clarifai API - Face Detection Model](https://www.clarifai.com/models/ai-face-detection).
+
+## Features
+
+- [] User can input an image url, click the detect button and the API displays a blue-lined box around the face detected in the image.
+- [] User entries (image url) are diplayed below the input area.
+- [] User can create a free account with the registration form available.
+- [] User can sign into their account.
+
+---
+
+# Project Resources
+
+## Face Detection model 
+- (https://www.clarifai.com/models/face-detection)
+
+## How the API was used in this particular project
+
+- (https://github.com/Clarifai/clarifai-javascript#basic-use)
+- NOTE: I had to change the projects package.json 'react-scripts' to '^4.0.3' and run 'npm install', in order to get the Clarifai API to work according to this particular implementation.
+- [More info on the above ...](https://webpack.js.org/migrate/5/#run-a-single-build-and-follow-advice)
+
+## A list of the Clarifai Model info
+
+- (https://github.com/Clarifai/clarifai-javascript/blob/master/src/index.js)
+
+## A list of all the Clarifai API Models
+
+- (https://www.clarifai.com/model-gallery)
+
+## Andrei Neagoie GitHub Repo for the project front-end
+
+- (https://github.com/aneagoie/face-recognition-brain/blob/master/package.json)
+
+## tsparticles Matteo Bruni GitHub repo
+>> ### react implementation
+- (https://github.com/matteobruni/tsparticles/blob/main/components/react/README.md)
+>> ### triangles_presets - options
+- (https://github.com/matteobruni/tsparticles/blob/main/presets/triangles/src/options.ts)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
