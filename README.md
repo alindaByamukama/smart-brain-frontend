@@ -7,8 +7,8 @@ This is the front-end of the Capstone (final) project in the [Zero to Mastery: T
 
 ## Features
 
-- [ ] User can input an image url, click the detect button and the API displays a blue-lined box around the face detected in the image.
-- [ ] User entries (image url) are diplayed below the input area.
+- [x] User can input an image url, click the detect button and the API displays a blue-lined box around the face detected in the image.
+- [x] User inputs (image url) are diplayed below the input area.
 - [ ] User can create a free account with the registration form available.
 - [ ] User can sign into their account.
 
