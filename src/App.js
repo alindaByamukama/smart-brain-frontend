@@ -9,6 +9,7 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm'
 import Rank from './components/Rank/Rank'
 import 'tachyons'
 import './App.css'
+import SignIn from './components/SignIn/SignIn'
 
 const app = new Clarifai.App({
   apiKey: 'fc4c8606d6764cc19fb5b8455675353b'
@@ -21,6 +22,7 @@ class App extends Component {
         input: '',
         imageUrl: '',
         box: {},
+        route: 'signin'
       }
   }
 
@@ -102,12 +104,17 @@ class App extends Component {
           options={particlesOptions}
         />
         <Navigation />
-        <Logo />
-        <Rank />
-        <ImageLinkForm 
-        onInputChange={this.onInputChange} 
-        onBtnSubmit={this.onBtnSubmit} />
-        <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} /> 
+          { this.state.route === 'signin' ?
+          < SignIn/> : 
+          <div>
+            <Logo />
+            <Rank />
+            <ImageLinkForm 
+            onInputChange={this.onInputChange} 
+            onBtnSubmit={this.onBtnSubmit} />
+            <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} /> 
+          </div>
+          }
       </div>
     )
   }
