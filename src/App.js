@@ -10,10 +10,47 @@ import Rank from './components/Rank/Rank'
 import 'tachyons'
 import './App.css'
 import SignIn from './components/SignIn/SignIn'
+import Register from './components/Register/Register'
 
 const app = new Clarifai.App({
   apiKey: 'fc4c8606d6764cc19fb5b8455675353b'
  });
+
+const particlesInit = async (main) => {
+  // console.log(main);
+  await loadFull(main);
+}
+
+const particlesLoaded = async (container) => {
+  // console.log(container);
+  await container
+}
+
+const particlesOptions = {
+  background: {
+  color: "none",
+  },
+  particles: {
+      links: {
+          distance: 125,
+          enable: true,
+          triangles: {
+              enable: true,
+              opacity: 0.05,
+          },
+      },
+      move: {
+          enable: true,
+          speed: 1,
+      },
+      size: {
+          value: 1,
+      },
+      shape: {
+          type: "circle",
+      },
+  }
+}
 
 class App extends Component {
   constructor() {
@@ -22,7 +59,8 @@ class App extends Component {
         input: '',
         imageUrl: '',
         box: {},
-        route: 'signin'
+        route: 'signin',
+        isSignedIn: false
       }
   }
 
@@ -56,45 +94,19 @@ class App extends Component {
         this.state.input)
       .then(response => this.displayFaceBox(this.calculateFaceLocation(response)))
       .catch(err => console.log('ALERT', err))
+  } 
+
+  onRouteChange = (route) => {
+    if (route === 'signout') {
+      this.setState({isSignedIn: false})
+    } else if (route === 'home') {
+      this.setState({isSignedIn: true})
+    }
+    this.setState({route: route})
   }
 
   render() {
-    const particlesInit = async (main) => {
-      // console.log(main);
-      await loadFull(main);
-    }
-
-    const particlesLoaded = async (container) => {
-      // console.log(container);
-      await container
-    }
-
-    const particlesOptions = {
-      background: {
-      color: "none",
-      },
-      particles: {
-          links: {
-              distance: 125,
-              enable: true,
-              triangles: {
-                  enable: true,
-                  opacity: 0.05,
-              },
-          },
-          move: {
-              enable: true,
-              speed: 1,
-          },
-          size: {
-              value: 1,
-          },
-          shape: {
-              type: "circle",
-          },
-      }
-    }
-    
+    const { isSignedIn, imageUrl, route, box } = this.state
     return (
       <div className="App">
         <Particles className='particles' 
@@ -103,17 +115,21 @@ class App extends Component {
           loaded={particlesLoaded}
           options={particlesOptions}
         />
-        <Navigation />
-          { this.state.route === 'signin' ?
-          < SignIn/> : 
+        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+          { route === 'home' ? 
           <div>
             <Logo />
             <Rank />
             <ImageLinkForm 
             onInputChange={this.onInputChange} 
             onBtnSubmit={this.onBtnSubmit} />
-            <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} /> 
+            <FaceRecognition box={box} imageUrl={imageUrl} /> 
           </div>
+          : (
+            this.state.route === 'signin' 
+            ? < SignIn onRouteChange={this.onRouteChange}/>
+            : < Register onRouteChange={this.onRouteChange}/>
+            )
           }
       </div>
     )
