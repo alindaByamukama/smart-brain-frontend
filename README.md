@@ -5,12 +5,20 @@ Live deployment on GitHub Pages [here](https://alindabyamukama.github.io/smart-b
 <br>
 This is the front-end of the Capstone (final) project in the [Zero to Mastery: The Complete Web Developer in 2022](https://zerotomastery.io/courses/coding-bootcamp/#Curriculum). I am still working on the back-end server and database, expect to see them linked here soon.
 
+## How to run this app
+1. Clone this repo
+2. Change directory to root folder
+3. Run npm install
+4. Run npm start
+5. Add your own API key in the src/App.js file to connect to Clarfai
+Note: Check below for where to get the Clarifai API key.
+
 ## Features
 
 - [x] User can input an image url, click the detect button and the API displays a blue-lined box around the face detected in the image.
 - [x] User inputs (image url) are diplayed below the input area.
-- [ ] User can create a free account with the registration form available.
-- [ ] User can sign into their account.
+- [x] User can create a free account with the registration form available.
+- [x] User can sign into their account.
 
 ---
 
