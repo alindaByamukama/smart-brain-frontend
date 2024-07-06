@@ -81,29 +81,34 @@ class App extends Component {
   }
 
   calculateFaceLocation = (data) => {
-    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
-    const image = document.getElementById('inputImage')
-    const width = Number(image.width)
-    const height = Number(image.height)
-    return {
-      leftCol: clarifaiFace.left_col * width,
-      topRow: clarifaiFace.top_row * height,
-      rightCol: width - (clarifaiFace.right_col * width),
-      bottomRow: height - (clarifaiFace.bottom_row * height)
-    }
-  }
+    if (data.outputs && data.outputs[0].data.regions) {
+      const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
+      const image = document.getElementById('inputImage')
+      const width = Number(image.width)
+      const height = Number(image.height)
+      return {
+          leftCol: clarifaiFace.left_col * width,
+          topRow: clarifaiFace.top_row * height,
+          rightCol: width - (clarifaiFace.right_col * width),
+          bottomRow: height - (clarifaiFace.bottom_row * height)
+        }
+      }
+      return null
+     }
 
   displayFaceBox = (box) => {
-    console.log(box)
-    this.setState({box: box})
+    console.log('displayFaceBox:', box)
+    if (box) {
+      this.setState({box: box})
   }
 
   onInputChange = (event) => {
     this.setState({input: event.target.value})
   }
-  
+
   onPictureSubmit = () => {
     const backendUrl = process.env.REACT_APP_BACKEND_URL;
+    console.log('Backend URL:', backendUrl);
     this.setState({imageUrl: this.state.input})
     fetch(`${backendUrl}/imageurl`, {
         method: 'post',
@@ -113,7 +118,13 @@ class App extends Component {
         })
       })
       .then(response => response.json())
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} - ${response.statusText}`)
+	}
+        return response.json();
+      })
       .then(response => {
+        console.log('Clarifai API Response:', response)
         if (response) {
             fetch(`${backendUrl}/image`, {
             method: 'put',
@@ -128,10 +139,11 @@ class App extends Component {
             })
             .catch(console.log)
         }
-        this.displayFaceBox(this.calculateFaceLocation(response))
+        const faceBox = this.calculateFaceLocation(response)
+        this.displayFaceBox(faceBox)
       })
-      .catch(err => console.log('ALERT', err))
-  } 
+      .catch(err => console.error('Error:', err))
+  }
 
   onRouteChange = (route) => {
     if (route === 'signout') {
