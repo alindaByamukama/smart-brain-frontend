@@ -13,6 +13,7 @@
     "react-parallax-tilt": "^1.7.38",
     "react-scripts": "^4.0.3",
     "react-tsparticles": "^2.0.6",
+    "source-map": "^0.7.4",
     "tachyons": "^4.12.0",
     "tsparticles": "^2.0.6",
     "web-vitals": "^2.1.4"
@@ -20,8 +21,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
