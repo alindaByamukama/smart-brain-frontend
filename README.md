@@ -2,7 +2,8 @@
 
 > A face detection web application created with React using the [Clarifai API - Face Detection Model](https://www.clarifai.com/models/ai-face-detection).
 
-**Live demo of the application can be found**: [here](https://alindabyamukama.github.io/smart-brain-frontend/)
+- **Live demo of the application can be found**: [here](https://alindabyamukama.github.io/smart-brain-frontend/)
+- **Backend Smart-Brain-API Repository**: [here](https://github.com/alindaByamukama/smart-brain-api)
 
 This is the front-end of the Capstone (final) project in the [Zero to Mastery: The Complete Web Developer in 2022](https://zerotomastery.io/courses/coding-bootcamp/#Curriculum). The back-end server and database are integrated and linked.
 
