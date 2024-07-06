@@ -107,8 +107,8 @@ class App extends Component {
   }
 
   onPictureSubmit = () => {
-    const backendUrl = process.env.REACT_APP_BACKEND_URL;
-    console.log('Backend URL:', backendUrl);
+    const backendUrl = process.env.REACT_APP_BACKEND_URL
+    console.log('Backend URL:', backendUrl)
     this.setState({imageUrl: this.state.input})
     fetch(`${backendUrl}/imageurl`, {
         method: 'post',
@@ -117,11 +117,11 @@ class App extends Component {
           input: this.state.input
         })
       })
-      .then(response => response.json())
+      .then(response => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`)
-	}
-        return response.json();
+        }
+        return response.json()
       })
       .then(response => {
         console.log('Clarifai API Response:', response)
