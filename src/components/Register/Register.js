@@ -23,7 +23,8 @@ class Register extends React.Component {
     }
 
     onSubmitSignIn = (event) => {
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/register`, {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
+    fetch(`${backendUrl}/register`, {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
