@@ -11,7 +11,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-parallax-tilt": "^1.7.38",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^3.0.1",
     "react-tsparticles": "^2.0.6",
     "tachyons": "^4.12.0",
     "tsparticles": "^2.0.6",
@@ -44,6 +44,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^6.1.1"
   }
 }
