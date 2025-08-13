@@ -81,15 +81,15 @@ class App extends Component {
   }
 
   calculateFaceLocation = (data) => {
-    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
+    const clarifaiFace = data[0].data.regionsList[0].regionInfo.boundingBox;
     const image = document.getElementById('inputImage')
     const width = Number(image.width)
     const height = Number(image.height)
     return {
-      leftCol: clarifaiFace.left_col * width,
-      topRow: clarifaiFace.top_row * height,
-      rightCol: width - (clarifaiFace.right_col * width),
-      bottomRow: height - (clarifaiFace.bottom_row * height)
+      leftCol: clarifaiFace.leftCol * width,
+      topRow: clarifaiFace.topRow * height,
+      rightCol: width - (clarifaiFace.rightCol * width),
+      bottomRow: height - (clarifaiFace.bottomRow * height)
     }
   }
 
