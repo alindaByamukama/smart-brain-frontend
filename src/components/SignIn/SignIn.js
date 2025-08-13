@@ -1,4 +1,5 @@
 import React from 'react'
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class SignIn extends React.Component {
     }
 
     onSubmitSignIn = () => {
-        fetch('http://localhost:3000/signin', {
+        fetch(`${API_URL}/signin`, {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
