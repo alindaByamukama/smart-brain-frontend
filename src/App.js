@@ -12,9 +12,8 @@ import SignIn from './components/SignIn/SignIn'
 import Register from './components/Register/Register'
 
 const particlesInit = async (main) => {
-  // console.log(main);
   await loadFull(main);
-}
+};
 
 const particlesLoaded = async (container) => {
   // console.log(container);
