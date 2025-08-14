@@ -70,6 +70,16 @@ class App extends Component {
     super() 
       this.state = initialState
   }
+  
+  componentDidMount() {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+          const parsedUser = JSON.parse(storedUser);
+          this.loadUser(parsedUser);
+          this.setState({ isSignedIn: true, route: 'home' });
+      }
+  }
+
   loadUser = (data) => {
     this.setState({user: 
       {
