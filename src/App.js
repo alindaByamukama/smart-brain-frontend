@@ -146,6 +146,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
+      localStorage.removeItem('user');
       this.setState(initialState)
     } else if (route === 'home') {
       this.setState({isSignedIn: true})
