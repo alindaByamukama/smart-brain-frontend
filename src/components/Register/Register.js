@@ -37,6 +37,7 @@ class Register extends React.Component {
             .then(user => {
                 if (user.id) {
                     this.props.loadUser(user)
+                    localStorage.setItem('user', JSON.stringify(user));
                     this.props.onRouteChange('home')
                 }
             })
